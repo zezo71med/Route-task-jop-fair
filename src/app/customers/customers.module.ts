@@ -10,6 +10,7 @@ import { ChartModule } from 'primeng/chart';
 import { RouterModule, Routes } from '@angular/router';
 import { CustomersComponent } from './customers/customers.component';
 import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,6 +21,8 @@ import { DropdownModule } from 'primeng/dropdown';
     TableModule,
     ChartModule,
     DropdownModule,
+    ReactiveFormsModule,
+    FormsModule
   ],providers:[CustomersService]
 })
 export class CustomersModule { }

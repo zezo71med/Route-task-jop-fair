@@ -6,10 +6,14 @@ import { Component,Input } from '@angular/core';
   styleUrl: './table.component.css'
 })
 export class TableComponent {
+  searchBoxTxt: any ;
+
   @Input() transactions:any = [];
   @Input() customers:any = [];
 
   getCustomerName(customer_id: number) {
     return this.customers.find((obj: any) => obj.id == customer_id).name
   }
+
+  
 }

@@ -1,5 +1,5 @@
-
-<p-table [value]="transactions" [tableStyle]="{ 'min-width': '50rem' }">
+<input type="text" class="form-control" id="searchProduct"  [(ngModel)]="searchBoxTxt" name="searchBoxTxt" aria-describedby="amount">
+<p-table [value]="transactions " [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header">
         <tr>
             <th>Code</th>
