@@ -1,0 +1,19 @@
+
+<p-table [value]="transactions" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Amount</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-transaction >
+        <tr>
+            <td>{{ transaction.id}}</td>
+            <td>{{ getCustomerName(transaction.customer_id)}}</td>
+            <td>{{ transaction.date | date:"dd - MM - yyy" }}</td>
+            <td>{{ transaction.amount | currency: " egp  " }}</td>
+        </tr>
+    </ng-template>
+</p-table>

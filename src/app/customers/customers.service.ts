@@ -6,12 +6,10 @@ import { Injectable } from '@angular/core';
 })
 export class CustomersService {
 
-  constructor(private _http:HttpClient) { }
-getCustomers(){
-  const url: string = './../../assets/json/customers.json';
-  this._http.get(url).subscribe((response) => {
-    return response;
-  });
-  return this._http.get('/assets/json/customers.json')
-}
+  constructor(private _http: HttpClient) { }
+  getCustomers() {
+    const url = './../../assets/data/customers.json';
+    return this._http.get(url)
+   
+  }
 }

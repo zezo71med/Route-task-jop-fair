@@ -1,0 +1,12 @@
+<div class="card" *ngIf="data?.labels.length > 0">
+    <p-chart type="bar" [data]="data"  />
+</div>
+<div>
+    @if (allCustomer) {
+        <ul>
+            @for (item of allCustomer.customers; track $index) {
+                <li (click)="getTotalTransactionAmontForCustomer(item.id)">{{item.name}}</li>
+            }
+        </ul>
+    }
+</div>
