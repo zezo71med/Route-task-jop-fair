@@ -12,8 +12,11 @@ export class CustomersComponent {
   transactions: Transaction[] = [];
   customers: Customer[] = [];
   transactionsData: any;
-  loding: boolean=true;
+  loding: boolean = true;
   filterTransactions: any;
+  visible: boolean = false;
+  custmerSelected: any;
+  totalTransactionAmontForCustomer: any;
   constructor(private CustomerService: CustomersService) {
     this.getAllCustomers()
   }
@@ -24,18 +27,28 @@ export class CustomersComponent {
         this.customers = res.customers
         this.filterTransactions = res;
 
-this.loding=false
+        this.loding = false
       }
     })
   }
-  selectedCustomer(custmoers_id:any){
-    console.log('custmoers_id',custmoers_id);
-
+  selectedCustomer(custmoers: any) {
+    this.visible = true;
+    this.custmerSelected = custmoers
+    this.getTotalTransactionAmontForCustomer(custmoers.customer_id)
+    this.displayGraph()
   }
   applyFilter(filter: { customerId: number, minAmount: number }) {
     this.filterTransactions = this.transactions.filter(transaction => {
       return (!filter.customerId || transaction.customer_id === filter.customerId) &&
-             (!filter.minAmount || transaction.amount >= filter.minAmount);
+        (!filter.minAmount || transaction.amount >= filter.minAmount);
     });
+  }
+  getTotalTransactionAmontForCustomer(customerId: number) {
+    this.totalTransactionAmontForCustomer = this.filterTransactions.transactions.filter((obj: any) => obj.customer_id === customerId);
+    console.log('totalTransactionAmontForCustomer',this.totalTransactionAmontForCustomer);
+    
+  }
+  displayGraph(){
+
   }
 }

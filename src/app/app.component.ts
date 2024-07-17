@@ -14,13 +14,6 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   
-constructor(private _customerService:CustomersService,private _http:HttpClient){
-  this.getAllCustomers()
+constructor(){
 }
-  getAllCustomers() {
-    const url: string = './../assets/data/customers.json';
-    this._http.get(url).subscribe((res) => {
-      console.log('customer;',res)    });
-    }
-
 }

@@ -8,8 +8,8 @@
             <th>Amount</th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-transaction >
-        <tr>
+    <ng-template pTemplate="body" let-transaction  >
+        <tr (click)="showChart(transaction.customer_id)">
             <td>{{ transaction.id}}</td>
             <td>{{ getCustomerName(transaction.customer_id)}}</td>
             <td>{{ transaction.date | date:"dd - MM - yyy" }}</td>
@@ -17,3 +17,4 @@
         </tr>
     </ng-template>
 </p-table>
+
